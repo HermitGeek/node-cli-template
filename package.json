@@ -1,0 +1,71 @@
+{
+  "name": "@calmer/terminal-cli",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "终端工具脚手架",
+  "private": false,
+  "bin": {
+    "terminal-test": "./dist/command.cjs"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "dev": "cross-env NODE_ENV=development rollup -c --watch",
+    "release": "bumpp --commit \"release: release v%s\" --push --tag && npm publish",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:eslint": "eslint . --fix",
+    "lint:format": "prettier --write --loglevel warn \"**/*.{js,cjs,ts}\"",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.cjs",
+    "lint:all": "npm run lint:eslint && npm run lint:format",
+    "prepublishOnly": "npm run build",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "zxhermit@126.com",
+  "license": "ISC",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "sideEffects": false,
+  "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@rollup/plugin-alias": "^4.0.2",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-json": "^5.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "babel-preset-env": "^1.7.0",
+    "bumpp": "^8.2.1",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.15.15",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.0.4",
+    "prettier": "^2.8.0",
+    "rollup": "^3.4.0",
+    "rollup-plugin-dts": "^5.0.0",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "rollup-plugin-hashbang": "^3.0.0",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.3"
+  }
+}
