@@ -8,7 +8,7 @@ import typescript from 'rollup-plugin-typescript2'
 import babel from '@rollup/plugin-babel'
 import hashbang from 'rollup-plugin-hashbang'
 
-const entries = ['src/index.ts', 'src/command.ts']
+const entries = ['src/command.ts', 'src/index.ts']
 
 const plugins = [
   babel({
@@ -38,14 +38,14 @@ export default [
         format: 'esm'
       },
       {
-        file: input.replace('src/', 'dist/').replace('.ts', '.cjs'),
+        file: input.replace('src/', 'dist/').replace('.ts', '.js'),
         format: 'cjs'
       }
     ],
     external: [],
     plugins
   })),
-  ...entries.map((input) => ({
+  ...entries.slice(1).map((input) => ({
     input,
     output: {
       file: input.replace('src/', '').replace('.ts', '.d.ts'),
