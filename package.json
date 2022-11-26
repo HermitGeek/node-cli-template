@@ -1,16 +1,16 @@
 {
   "name": "@calmer/terminal-cli",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.0.4-beta.0",
   "description": "终端工具脚手架",
   "private": false,
   "bin": {
-    "terminal-test": "./dist/command.cjs"
+    "terminal-test": "./dist/command.js"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup -c",
     "dev": "cross-env NODE_ENV=development rollup -c --watch",
-    "release": "bumpp --commit \"release: release v%s\" --push --tag && npm publish",
+    "publish": "bumpp --commit \"release: release v%s\" --push --tag && npm publish",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "lint:eslint": "eslint . --fix",
