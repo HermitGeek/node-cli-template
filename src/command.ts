@@ -2,10 +2,22 @@
 const { Command } = require('commander')
 const pkginfo = require('pkginfo')
 const program = new Command()
+import inquirer from 'inquirer'
+import inquirerPrompt from 'inquirer-autocomplete-prompt'
+
+inquirer.registerPrompt('autocomplete', inquirerPrompt)
 
 program.version(pkginfo.version, '-v, --version', '@calmer/terminal-cli 当前版本')
 
 // ⭐ 声明主命令相关选项
+/*
+    命令行输入option方式
+    
+    serve -d 80
+    serve -d80
+    serve --dir 80
+    serve --dir=80
+*/
 program
   // .description('命令描述') // 命令描述
   .option('-d, --dir <dirname>', '带参选项描述', '选项默认值') // 带参选项（选项全称 取值时转成驼峰写法），支持设置默认值
@@ -13,7 +25,22 @@ program
   .option('-rm, --remove <dirname...>', '带参选项描述') // 数组参数必填，指令中多个参数空格分割，不支持设置默认值
   .option('-i, --ip [dirname...]', '带参选项描述') // 数组参数，非必填(不填值为true)，指令中多个参数空格分割，不支持设置默认值
   .action(async (options: object) => {
-    console.log('action', options) // option.dir   option.copy
+    console.log('main-action', options) // option.dir   option.copy
+
+    inquirer
+      .prompt({
+        type: 'checkbox',
+        name: 'checkboxAnswer',
+        message: '多选',
+        choices: [
+          { name: '1', value: 1 },
+          { name: '2', value: 2 },
+          { name: '3', value: 3 }
+        ]
+      })
+      .then((answers) => {
+        console.log('inquirer-answers', answers)
+      })
   })
 
 // ⭐ 声明子命令
@@ -28,7 +55,7 @@ program
         添加多个argument时，依次为action的参数1、参数2、参数3
     */
   .action(async (argument1Name: string, argument2Name: string, options: object) => {
-    console.log('action', argument1Name, argument2Name, options)
+    console.log('sub-action', argument1Name, argument2Name, options)
   })
 
 // ⭐ 命令钩子
@@ -64,12 +91,3 @@ program.on('option:dir', function (optionValue: any) {
 
 // 解析用户执行命令传入的参数
 program.parse(process.argv)
-
-/*
-    命令行输入option方式
-    
-    serve -d 80
-    serve -d80
-    serve --dir 80
-    serve --dir=80
-*/
