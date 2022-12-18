@@ -1,8 +1,8 @@
 {
-  "name": "@calmer/terminal-cli",
+  "name": "@calmer/node-cli-template",
   "type": "module",
-  "version": "0.0.4",
-  "description": "终端工具脚手架",
+  "version": "0.0.1",
+  "description": "Node CLI Template",
   "private": false,
   "bin": {
     "terminal-test": "./dist/command.cjs"
