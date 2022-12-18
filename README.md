@@ -2,14 +2,12 @@
 
 这是一个 Node CLI Template，帮助你快速搭建自己的 Node 终端工具，为开发提效！
 
-这是一个 基于 Rollup 打包、集成了 TS、ESLint 的 Node CLI 模板，内含 `release` 指令，可以一键完成 push 代码 + 交互式更新 version + CLI 发版！
+这是一个 基于 Rollup 打包、集成了 TS、ESLint 的 Node CLI 模板，产物是 cjs、mjs ！
+
+定义了 `release` 指令，可以一键完成 push 代码 + 交互式更新 version + CLI 发版！
 
 
 
-<p align="center">
-  <h1 align="center">下面是 Node.js CLI 应用程序最佳实践</h1>
-一个关于如何构建成功，富有同情心且用户友好的 Node.js 命令行界面（CLI）应用程序的精选最佳实践的集合。
-</p>
 
 ## 二、Node CLI 最佳实践
 <p align="center">
