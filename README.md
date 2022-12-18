@@ -8,12 +8,11 @@
 
 
 
+![Node CLI (1)](https://user-images.githubusercontent.com/27475750/208305900-f427a218-82bb-46d2-92c2-06a4ec97a289.png)
+
+
 
 ## 二、Node CLI 最佳实践
-<p align="center">
-  <img src=".github/node-js-cli-apps-best-practices.png" height="400px" />
-</p>
-
 ### 2.1、命令行体验
 
 本节介绍有关创建漂亮且高价值用户体验的 Node.js 命令行应用程序最佳实践。
