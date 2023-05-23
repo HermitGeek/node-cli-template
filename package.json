@@ -1,8 +1,8 @@
 {
-  "name": "@calmer/node-cli-template",
+  "name": "@calmer/terminal-cli",
   "type": "module",
-  "version": "0.0.1",
-  "description": "Node CLI Template",
+  "version": "0.0.5-beta.0",
+  "description": "终端工具脚手架",
   "private": false,
   "bin": {
     "terminal-test": "./dist/command.cjs"
@@ -39,10 +39,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "@types/inquirer-autocomplete-prompt": "^3.0.0",
     "commander": "^9.4.1",
-    "inquirer": "^8.2.5",
-    "inquirer-autocomplete-prompt": "^2.0.0",
     "pkginfo": "^0.4.1"
   },
   "devDependencies": {
@@ -54,9 +51,7 @@
     "@rollup/plugin-commonjs": "^23.0.2",
     "@rollup/plugin-json": "^5.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
-    "@types/inquirer": "^8.2.5",
     "@types/node": "^18.11.9",
-    "@types/pkginfo": "^0.4.0",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
     "babel-preset-env": "^1.7.0",

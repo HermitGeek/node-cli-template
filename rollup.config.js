@@ -13,7 +13,6 @@ const plugins = [
   babel({
     babelrc: false,
     babelHelpers: 'bundled',
-    exclude: /node_modules/,
     presets: [
       [
         'env',
@@ -21,10 +20,7 @@ const plugins = [
           modules: false
         }
       ]
-    ],
-    rules: {
-      '@typescript-eslint/ban-ts-comment': 2
-    }
+    ]
   }),
   resolve({
     preferBuiltins: true
